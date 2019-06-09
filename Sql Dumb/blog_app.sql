@@ -31,7 +31,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `FK6xvn0811tkyo3nfjk2xvqx6ns` (`author_id`),
   CONSTRAINT `FK6xvn0811tkyo3nfjk2xvqx6ns` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'asdasd','2008-11-11 00:00:00','asfawf',1),(2,'safafg','2008-11-11 00:00:00','fgh',1),(3,'zzzz','2019-06-09 14:00:58','zzzz',2),(4,'zzz','2019-06-09 14:04:34','zzz',2);
+INSERT INTO `posts` VALUES (1,'asfaf','2019-06-09 15:04:52','asf',1),(2,'awgagag','2019-06-09 15:56:15','asegag',1);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_r43af9ap4edm43mmtq01oddj6` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ashan','kumaran'),(2,'zzzz','zzzz'),(3,'ssss','ssss');
+INSERT INTO `users` VALUES (1,'cb990257247b592eaaed54b84b32d96b7904fd95','pranav');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -79,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-09 14:19:57
+-- Dump completed on 2019-06-09 16:25:03
