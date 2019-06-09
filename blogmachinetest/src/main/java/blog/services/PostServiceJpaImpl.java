@@ -22,7 +22,7 @@ public class PostServiceJpaImpl implements PostService {
 
     @Override
     public List<Post> findAll() {
-        return postRepo.findByAuthorId( (((User)httpSession.getAttribute("user")).getId()));
+        return postRepo.findByAuthorId((((User) httpSession.getAttribute("user")).getId()));
     }
 
 

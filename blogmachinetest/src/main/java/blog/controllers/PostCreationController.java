@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.text.AttributedCharacterIterator;
 
 @Controller
 public class PostCreationController {
@@ -41,11 +40,10 @@ public class PostCreationController {
 
 
         postService.create(
-                new Post(postForm.getTitle(), postForm.getBody(),((User)httpSession.getAttribute("user"))));
-
+                new Post(postForm.getTitle(), postForm.getBody(), ((User) httpSession.getAttribute("user"))));
 
 
         notifyService.addInfoMessage("Post added successful");
-        return"redirect:/";
-}
+        return "redirect:/";
+    }
 }

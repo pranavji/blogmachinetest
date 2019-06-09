@@ -23,7 +23,7 @@ public class UserServiceStubImpl implements UserService {
         if (user == null)
             return false;
         else {
-            session.setAttribute("user",user);
+            session.setAttribute("user", user);
 
             return true;
         }
@@ -36,6 +36,6 @@ public class UserServiceStubImpl implements UserService {
         user.setUsername(username);
         user.setPasswordHash(password);
         userRepository.save(user);
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
     }
 }

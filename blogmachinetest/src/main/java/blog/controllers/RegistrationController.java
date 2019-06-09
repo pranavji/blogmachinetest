@@ -1,6 +1,5 @@
 package blog.controllers;
 
-import blog.forms.LoginForm;
 import blog.forms.RegisterForm;
 import blog.services.NotificationService;
 import blog.services.UserService;
@@ -37,8 +36,7 @@ public class RegistrationController {
                 registerForm.getUsername(), registerForm.getPassword());
 
 
-
         notifyService.addInfoMessage("Registration successful");
-        return"redirect:/";
-}
+        return "redirect:/";
+    }
 }
