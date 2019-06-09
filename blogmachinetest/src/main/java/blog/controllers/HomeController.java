@@ -24,14 +24,13 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model, HttpSession session) {
 
-        if((User) session.getAttribute("user")==null)
-        {
+        if ((User) session.getAttribute("user") == null) {
             return "redirect:/users/login";
         }
         List<Post> posts = postService.findAll();
         model.addAttribute("posts", posts);
         model.addAttribute("logged", true);
-        model.addAttribute("user",((User)((User) session.getAttribute("user"))).getUsername() );
+        model.addAttribute("user", ((User) ((User) session.getAttribute("user"))).getUsername());
 
         return "index";
     }

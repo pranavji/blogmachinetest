@@ -16,20 +16,21 @@
 
 <main id="posts">
     <div class="container">
-        <h3>Your Blogs</h3>
+        <h3 style="color:white">Your Blogs</h3>
         <article th:each="p : ${posts}" style="margin:30px">
-            <div class="row" >
+            <div class="row">
                 <div class="col-sm-12 ">
-                    <i>Title</i><h2 style="border-radius:20px;background:orange;color:white;margin-bottom:10px" class="title"
-                        th:text="${p.title}">Post Title</h2>
+                    <h2 style="border-radius:20px;background:orange;color:white;margin-bottom:10px" class="title"
+                        th:text="'Title : ' +${p.title}">Post Title</h2>
                     <div class="date" style="border-radius:20px;background:black;color:white;margin-bottom:10px">
                         <i>Posted on</i>
-                        <span th:text="${#dates.format(p.date, 'dd-MMM-yyyy')}">22-May-2016</span>
+                        <span th:text="${#dates.format(p.date, 'dd-MMM-yyyy')}"></span>
                         <span th:if="${p.author}" th:remove="tag">
                     <i>by</i> <span th:text="${ p.author.username}"></span>
                 </span>
                     </div>
-                    <p class="content" style="text-align:left;border-radius:20px;color:grey;margin-bottom:10px" th:utext="${p.body}">
+                    <p class="content" style="text-align:left;border-radius:20px;color:white;margin-bottom:10px"
+                       th:utext="${p.body}">
                         Post content</p>
                 </div>
             </div>
