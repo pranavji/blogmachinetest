@@ -28,8 +28,8 @@ public class HomeController {
         {
             return "redirect:/users/login";
         }
-        List<Post> latest5Posts = postService.findAll();
-        model.addAttribute("posts", latest5Posts);
+        List<Post> posts = postService.findAll();
+        model.addAttribute("posts", posts);
 
 
         return "index";

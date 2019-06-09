@@ -1,5 +1,6 @@
 package blog.services;
 
+import blog.Globals;
 import blog.models.Post;
 import blog.models.User;
 import blog.repositories.PostRepository;
@@ -20,7 +21,7 @@ public class PostServiceJpaImpl implements PostService {
 
     @Override
     public List<Post> findAll() {
-        return postRepo.findAll();
+        return postRepo.findByAuthorId(Globals.CURRENT_USER.getId());
     }
 
 
