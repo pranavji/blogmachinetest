@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="site-head">
-    <meta charset="UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 
     <link rel="stylesheet" href="../public/css/styles.css"
@@ -22,14 +23,15 @@
     <header>
 
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html" th:href="@{/}">ACCUBITS BLOG<img
                              style="height:100%" src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}"/></a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html" th:href="@{/}">Home</a></li>
+                    <li><a href="
+                    ndex.html" th:href="@{/}">Home</a></li>
 
 
 
@@ -41,7 +43,7 @@
 
                 </ul>
                 <ul th:if="${logged}" class="nav navbar-nav navbar-right">
-                    <li style="color:white"> <a href="#" ><span style="color:white" th:text="${user}" class="glyphicon glyphicon-avatar">Welcome</span></a></li>
+                    <li style="color:lightblue"> <a href="#" ><span style="color:blue;text-transform: uppercase;" th:text="'Welcome ' + ${user}+ '!'" class="glyphicon glyphicon-avatar">Welcome</span></a></li>
                     <li><a href="users/logout"  th:href="@{/users/logout}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 
 

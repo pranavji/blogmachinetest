@@ -1,5 +1,5 @@
 body>header {
-    background: #eee;
+
     padding: 5px;
 }
 
@@ -11,7 +11,7 @@ body>header>a>img, body>header a  {
 }
 
 body>footer {
-    background: #eee;
+
     padding: 5px;
     margin: 10px 0;
     text-align: center;
@@ -78,7 +78,7 @@ ul#messages li.error {
 article
 {
 border-radius:30px;
-background:lightblue;
+background:rgba(43,154,172,0.7);
 
 box-shadow: 0px 0px 20px black;
 padding:50px;
@@ -93,4 +93,26 @@ left:50%;
 }
 main{
  text-align: center;
+}
+body
+{
+    background-image: url("../img/bg.jpg");
+  height:100vh;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.formbg
+{
+        background:rgba(43,154,172,0.7);
+        border-radius:40px;
+        box-shadow : 0px 0px 20px black;
+        margin:40px;
+        padding:50px;
+}
+
+.navbar
+{
+ background:rgba(255,255,255,0.4);
 }
