@@ -45,7 +45,7 @@ public class LoginController {
         notifyService.addInfoMessage("Login successful");
         return "redirect:/";
     }
-    @RequestMapping(value = "/users/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/logout", method = RequestMethod.GET)
     public String logout() {
 
         session.setAttribute("user",null);

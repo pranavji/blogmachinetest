@@ -7,29 +7,33 @@
 
 <body>
 
-<header th:replace="layout :: site-header" />
+<header th:replace="layout :: site-header"/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1>Register</h1>
+            <div class="form-group">
+            <form method="post" th:object="${registerForm}">
 
-<h1>Register in the Blog</h1>
 
-<form method="post" th:object="${registerForm}">
+                <div><label for="username">Username:</label></div>
+                <input class="form-control" id="username" type="text" name="username" th:value="*{username}"/>
+                <span class="formError" th:if="${#fields.hasErrors('username')}"
+                      th:errors="*{username}">Invalid username</span>
 
+                <div><label for="password" th:value="*{username}">Password:</label></div>
+                <input class="form-control" id="password" type="password" name="password" th:value="*{password}"/>
+                <span class="formError" th:if="${#fields.hasErrors('password')}"
+                      th:errors="*{password}">Invalid password</span>
 
-
-    <div><label for="username">Username:</label></div>
-    <input id="username" type="text" name="username" th:value="*{username}" />
-    <span class="formError" th:if="${#fields.hasErrors('username')}"
-          th:errors="*{username}">Invalid username</span>
-
-    <div><label for="password" th:value="*{username}">Password:</label></div>
-    <input id="password" type="password" name="password" th:value="*{password}" />
-    <span class="formError" th:if="${#fields.hasErrors('password')}"
-          th:errors="*{password}">Invalid password</span>
-
-    <div><input type="submit" value="Register"/>
-       </div>
-</form>
-
-<footer th:replace="layout :: site-footer" />
+                <div><input class="btn btn-default" type="submit" value="Register"/>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="layout :: site-footer"/>
 
 </body>
 
