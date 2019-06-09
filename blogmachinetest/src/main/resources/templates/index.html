@@ -7,7 +7,12 @@
 
 <body>
 <header th:replace="layout :: site-header" />
-
+<div id="logged-in-info">
+    <span>Hello, <b> <span th:text="${ user}"></span></b></span>
+    <form method="post" th:action="@{/users/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
 <!--<aside>-->
 <!--    <h2>Recent Posts</h2>-->
 <!--    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}"-->

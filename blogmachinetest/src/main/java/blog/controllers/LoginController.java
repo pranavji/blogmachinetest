@@ -9,10 +9,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    HttpSession session;
 
     @Autowired
     private UserService userService;
@@ -39,6 +43,13 @@ public class LoginController {
         }
 
         notifyService.addInfoMessage("Login successful");
+        return "redirect:/";
+    }
+    @RequestMapping(value = "/users/logout", method = RequestMethod.POST)
+    public String logout() {
+
+        session.setAttribute("user",null);
+        notifyService.addInfoMessage("Logged out");
         return "redirect:/";
     }
 }
