@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @Controller
 public class RegistrationController {
@@ -32,8 +33,16 @@ public class RegistrationController {
             return "users/register";
         }
 
-        userService.register(
-                registerForm.getUsername(), registerForm.getPassword());
+        try {
+            userService.register(
+                    registerForm.getUsername(), registerForm.getPassword());
+        }
+        catch (Exception ex)
+        {
+            notifyService.addErrorMessage("User Already Exists");
+            return "redirect:/";
+        }
+
 
 
         notifyService.addInfoMessage("Registration successful");
