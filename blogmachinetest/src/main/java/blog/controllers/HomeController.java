@@ -1,15 +1,15 @@
 package blog.controllers;
 
-import blog.Globals;
 import blog.models.Post;
+import blog.models.User;
 import blog.services.NotificationService;
 import blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -22,9 +22,9 @@ public class HomeController {
     private NotificationService notificationService;
 
     @RequestMapping("/")
-    public String home(Model model) {
+    public String home(Model model, HttpSession session) {
 
-        if(Globals.CURRENT_USER==null)
+        if((User)session.getAttribute("user")==null)
         {
             return "redirect:/users/login";
         }

@@ -1,16 +1,18 @@
 package blog.services;
 
-import blog.Globals;
 import blog.models.User;
 import blog.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import javax.servlet.http.HttpSession;
 
 
 @Service
 public class UserServiceStubImpl implements UserService {
+
+    @Autowired
+    HttpSession session;
 
     @Autowired
     UserRepository userRepository;
@@ -21,7 +23,8 @@ public class UserServiceStubImpl implements UserService {
         if (user == null)
             return false;
         else {
-            Globals.CURRENT_USER=user;
+            session.setAttribute("user",user);
+
             return true;
         }
     }
@@ -33,6 +36,6 @@ public class UserServiceStubImpl implements UserService {
         user.setUsername(username);
         user.setPasswordHash(password);
         userRepository.save(user);
-        Globals.CURRENT_USER=user;
+        session.setAttribute("user",user);
     }
 }

@@ -1,8 +1,8 @@
 package blog.controllers;
 
-import blog.Globals;
 import blog.forms.PostForm;
 import blog.models.Post;
+import blog.models.User;
 import blog.services.NotificationService;
 import blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.text.AttributedCharacterIterator;
 
 @Controller
 public class PostCreationController {
@@ -21,6 +23,9 @@ public class PostCreationController {
 
     @Autowired
     private NotificationService notifyService;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @RequestMapping("/users/createpost")
     public String register(PostForm postForm) {
@@ -34,8 +39,9 @@ public class PostCreationController {
             return "users/createpost";
         }
 
+
         postService.create(
-                new Post(postForm.getTitle(), postForm.getBody(), Globals.CURRENT_USER));
+                new Post(postForm.getTitle(), postForm.getBody(),((User)httpSession.getAttribute("user"))));
 
 
 
