@@ -30,6 +30,7 @@ public class HomeController {
         }
         List<Post> posts = postService.findAll();
         model.addAttribute("posts", posts);
+        model.addAttribute("logged", true);
         model.addAttribute("user",((User)((User) session.getAttribute("user"))).getUsername() );
 
         return "index";
